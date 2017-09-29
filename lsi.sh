@@ -77,7 +77,7 @@ fi
 # fi
 
 # format drives output to be similar to megasasctl - DJ
-if [ $1 = "drives" ]
+if [ $1 = "drives" ] || [ $1 = "disks" ]
    then
       printf "%-8s | %-6s | %-10s | %-15s | %-30s\n" "Disk" "Errors" "SMART Err" "Type" "DISKGROUP"
       FILE="/tmp/megacli_out"
