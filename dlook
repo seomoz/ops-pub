@@ -1,0 +1,40 @@
+#! /bin/bash
+
+#djoslin 7/2018
+
+# DNS Lookup. 
+#gather zone data from dns servers then search with grep.
+#assumes access to dallas.
+#save script somewhere on your path.
+#chmod a+x dlook.
+
+dnslist=dnslist.txt
+dns_server=daldnsslave10.dal.moz.com
+dns_server_proc="10.10.28.21"
+
+function getrecords 
+{
+	ping -q -c1 $dns_server  2>/dev/null 1>/dev/null
+	if [ "$?" -eq "0" ]; then
+		host -l tuk.moz.com $dns_server > $dnslist
+		host -l dal.moz.com $dns_server >> $dnslist
+		host -l proc.dal.moz.com $dns_server_proc >> $dnslist
+	else
+		echo "Cannot reach $dns_server. If remote, try opening VPN to dallas."
+	fi
+}
+
+if [  ! -f $dnslist ]; then
+	getrecords
+else
+	age=`perl -e 'printf "%d\n" ,(time()-((stat(shift))[9]))/60;' $dnslist`
+	if [ "$age" -gt "120" ]; then
+		getrecords
+	fi
+fi
+
+if [ $1 ]; then
+  grep $1 $dnslist
+else
+  echo "Enter a string to grep against all hosts in dns."
+fi
