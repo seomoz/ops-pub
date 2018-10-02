@@ -45,8 +45,7 @@ for DEVICE in $DEVICES; do
   if [ "$(echo "$INFO" | grep -c "Wear_Leveling_Count")" -eq 1 ]; then
     SECTOR=$(echo "$INFO" | grep Sector | awk '{print $3}')
     MODEL=$(echo "$INFO" | grep Model | awk '{for(i=3; i<=NF; ++i) printf "%s ", $i; print ""}')
-    AGE=$(echo "$INFO" | grep Power_On | awk '{print $10/8760}')
-    AGE=$(echo "scale=2; $AGE" |bc)
+    AGE=$(echo "$INFO" | grep Power_On | awk '{printf "%.1f\n", $10/8760}')
     WEAR=$(echo "$INFO" | grep Wear_Leveling | awk '{print $4}')
     LBAW=$(echo "$INFO" | grep Total_LBAs | awk '{print $10}')
     TBW=$(echo "scale=1; $LBAW*$SECTOR/1099511627776" | bc)
