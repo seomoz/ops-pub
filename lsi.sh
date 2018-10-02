@@ -16,6 +16,15 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
+if [ -e /usr/bin/aptitude ]; then
+  APT=/usr/bin/aptitude
+elif [ -e /usr/bin/apt ]; then
+  APT=/usr/bin/apt
+else
+  echo "can't find apt or aptitude" 1>&2
+  exit 1
+fi
+
 # Full path to the MegaRaid CLI binary - base on moz install - DJ
 MegaCli="/usr/sbin/megacli"
 
@@ -24,8 +33,8 @@ if [ ! -e $MegaCli ]; then
     CODENAME=`grep CODENAME /etc/lsb-release |cut -d"=" -f2`
     echo "deb http://hwraid.le-vert.net/ubuntu $CODENAME main" >> /etc/apt/sources.list
     wget -O - http://hwraid.le-vert.net/debian/hwraid.le-vert.net.gpg.key | sudo apt-key add -
-    aptitude update
-    aptitude -y install megacli megactl
+    $APT update
+    $APT -y install megacli megactl
 fi
 
 # The identifying number of the enclosure. Default for our systems is "8". Use
