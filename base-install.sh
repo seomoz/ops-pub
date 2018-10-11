@@ -49,10 +49,12 @@ $APT update
 $APT -y upgrade
 $APT -y install ntp ntpdate screen curl build-essential git-core dstat git htop sysstat zip xfsprogs 
 
-
 yellow "Setting editor to VI globally"
 #globally set editor to vi
 update-alternatives --set editor /usr/bin/vim.tiny
+
+yellow "Setting Timezone to UTC"
+timedatectl set-timezone UTC
 
 yellow "Set up sudo"
 #visudo  #uncomment the  %sudo line. Make look like "%sudo ALL=NOPASSWD: ALL"
