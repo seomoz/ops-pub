@@ -10,7 +10,6 @@
 path=$(dirname "$0")
 dnslist=$path/dnslist.txt
 dns_server=daldnsslave10.dal.moz.com
-dns_server_proc="10.10.28.21"
 
 function getrecords
 {
@@ -18,7 +17,6 @@ function getrecords
 	if [ "$?" -eq "0" ]; then
 		host -l tuk.moz.com $dns_server > $dnslist
 		host -l dal.moz.com $dns_server >> $dnslist
-		host -l proc.dal.moz.com $dns_server_proc >> $dnslist
 	else
 		echo "Cannot reach $dns_server. If remote, try opening VPN to dallas."
 	fi
