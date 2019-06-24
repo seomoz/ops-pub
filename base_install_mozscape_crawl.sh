@@ -16,7 +16,7 @@ sed -i 's/dns-search/#dns-search/' /etc/network/interfaces
 
 
 # Sysadmins to install!  Make sure to adjust as appropriate
-SYSADMIN_LIST="djoslin rob justis andrewmccollum adminuser"
+SYSADMIN_LIST="djoslin rob justis adminuser"
 
 # Some nice functions to make colorful outputs. :)
 color() {
