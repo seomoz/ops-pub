@@ -66,7 +66,7 @@ for USER in $SYSADMIN_LIST; do
   green ">>> Adding sysadmin $USER"
   useradd -m $USER -s /bin/bash -G sudo || true
   green ">>>>>> Adding ssh key"
-  wget -qO- static.seomoz.org/files/pub/pubid.$USER >> /home/$USER/.ssh/authorized_keys
+  wget -qO- https://raw.githubusercontent.com/seomoz/ops-pub/master/pub_ids/pubid.$USER >> /home/$USER/.ssh/authorized_keys
   chown $USER:$USER /home/$USER/.ssh/authorized_keys
 done
 #root user
@@ -74,7 +74,7 @@ mkdir -p /root/.ssh
 chmod 700 /root/.ssh
 touch /root/.ssh/authorized_keys
 chmod 644 /root/.ssh/authorized_keys
-wget -qO- static.seomoz.org/files/pub/pubid.adminuser >> /root/.ssh/authorized_keys
+wget -qO-  https://raw.githubusercontent.com/seomoz/ops-pub/master/pub_ids/pubid.adminuser >> /root/.ssh/authorized_keys
 
 yellow "Set up NTP"
 # Configure ntp
