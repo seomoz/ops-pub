@@ -1,0 +1,5 @@
+#! /bin/bash
+if [ -f /opt/datadog-agent/agent/datadog-cert.pem ]; then
+  curl -s https://raw.githubusercontent.com/DataDog/dd-agent/master/datadog-cert.pem > /opt/datadog-agent/agent/datadog-cert.pem
+  exit
+fi
