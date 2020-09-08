@@ -42,9 +42,9 @@ touch /tmp/ran_base_install.flag
 
 # Update packages
 yellow "Updating/installing packages"
-aptitude update || true
-aptitude -y upgrade
-aptitude -y install ntp ntpdate screen curl chkconfig build-essential git-core dstat libcurl4-openssl-dev libicu-dev htop sysstat zip xfsprogs
+apt update || true
+apt -y upgrade
+apt -y install ntp ntpdate screen curl build-essential git-core dstat libcurl4-openssl-dev libicu-dev htop sysstat zip xfsprogs
 
 yellow "Setting editor to VI globally"
 #globally set editor to vi
