@@ -98,6 +98,14 @@ perl -pi -e 's/\# session    required   pam_limits.so/session    required   pam_
 echo "session required pam_limits.so" >> /etc/pam.d/common-session
 echo "session required pam_limits.so" >> /etc/pam.d/common-session-noninteractive
 
+yellow "Install pdns-recorsor"
+wget http://joslins.us/files/pdns-recursor_4.1.2-1pdns.trusty_amd64.deb
+dpkg -i pdns-recursor_4.1.2-1pdns.trusty_amd64.deb
+echo "fixing dependencies with pdns-recursor"
+apt-get -f install
+echo "verify with sudo service pdns-recursor status. Should be running."
+echo "if not running run apt-get -f install"
+
 echo
 red " * * * "
 green "YOU ARE DONE."
