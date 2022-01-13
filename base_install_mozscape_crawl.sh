@@ -16,7 +16,7 @@ sed -i 's/dns-search/#dns-search/' /etc/network/interfaces
 
 
 # Sysadmins to install!  Make sure to adjust as appropriate
-SYSADMIN_LIST="djoslin rob justis adminuser"
+SYSADMIN_LIST="djoslin justis adminuser"
 
 # Some nice functions to make colorful outputs. :)
 color() {
@@ -97,6 +97,9 @@ LIMITS
 perl -pi -e 's/\# session    required   pam_limits.so/session    required   pam_limits.so/' /etc/pam.d/su || true
 echo "session required pam_limits.so" >> /etc/pam.d/common-session
 echo "session required pam_limits.so" >> /etc/pam.d/common-session-noninteractive
+
+# Disable ssh pw logins
+perl -pi -e 's/\#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 
 yellow "Install pdns-recorsor"
 wget http://joslins.us/files/pdns-recursor_4.1.2-1pdns.trusty_amd64.deb
