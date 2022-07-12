@@ -1,0 +1,13 @@
+diff --git a/src/http.cc b/src/http.cc
+index 4352b5e..0d46ff9 100644
+--- a/src/http.cc
++++ b/src/http.cc
+@@ -1947,7 +1947,7 @@ HttpStateData::buildRequestPrefix(HttpRequest * aRequest,
+                                   MemBuf * mb)
+ {
+     const int offset = mb->size;
+-    HttpVersion httpver(1,1);
++    HttpVersion httpver(1,0);
+     mb->Printf("%s %s HTTP/%d.%d\r\n",
+                RequestMethodStr(aRequest->method),
+                aRequest->urlpath.size() ? aRequest->urlpath.termedBuf() : "/",
