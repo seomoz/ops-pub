@@ -102,7 +102,9 @@ echo "session required pam_limits.so" >> /etc/pam.d/common-session-noninteractiv
 perl -pi -e 's/\#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 
 yellow "Install pdns-recorsor"
-wget http://joslins.us/files/pdns-recursor_4.1.2-1pdns.trusty_amd64.deb
+#wget http://joslins.us/files/pdns-recursor_4.1.2-1pdns.trusty_amd64.deb
+wget https://github.com/seomoz/ops-pub/raw/master/pdns-trusty.tgz
+tar -xzf pdns-trusty.tgz
 dpkg -i pdns-recursor_4.1.2-1pdns.trusty_amd64.deb
 echo "fixing dependencies with pdns-recursor"
 apt-get -f install
