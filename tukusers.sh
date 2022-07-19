@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# update users so that only the users listed below have accounts on the localhost.
+# curl -s https://raw.githubusercontent.com/seomoz/ops-pub/master/tukusers.sh|bash
+
 USERS="avery.crespi
 carlos.westman
 corbin.graham
