@@ -21,6 +21,7 @@ michael.greenwell
 moz
 namrata
 seomoz
+seomoz.stratus
 shravan.kumar
 sivasankar.ganta
 sushil.kumar
