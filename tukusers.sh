@@ -17,7 +17,7 @@ jason
 jesse.brown
 justis
 kamal.abdulwahab
-kadan.karimi
+ladan.karimi
 maksym.bykovskyy
 michael.greenwell
 moz
