@@ -9,6 +9,7 @@ corbin.graham
 daphne.mui
 dima.zhuravel
 djoslin
+eli.myers
 goutam.sahoo
 hahn.miao
 hrisikesh.chowdhury
@@ -24,7 +25,6 @@ namrata
 seomoz
 shravan.kumar
 sivasankar.ganta
-sushil.kumar
 vinitmahedia"
 
 # clean up old users
