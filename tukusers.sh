@@ -10,7 +10,6 @@ daphne.mui
 dima.zhuravel
 djoslin
 eli.myers
-goutam.sahoo
 hahn.miao
 hrisikesh.chowdhury
 jason
@@ -24,7 +23,6 @@ moz
 namrata
 seomoz
 shravan.kumar
-sivasankar.ganta
 vinitmahedia"
 
 # clean up old users
