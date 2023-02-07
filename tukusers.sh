@@ -38,7 +38,7 @@ for CURRENT_USER in $CURRENT_USERS; do
   fi
 done
 
-# If user does not existm add them.
+# If user does not exist, add them.
 for USER in $USERS; do
   if [ ! -e /home/$USER ]; then
     echo "Adding $USER"
