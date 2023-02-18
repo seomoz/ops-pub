@@ -17,7 +17,6 @@ jesse.brown
 justis
 kamal.abdulwahab
 ladan.karimi
-maksym.bykovskyy
 michael.greenwell
 moz
 namrata
