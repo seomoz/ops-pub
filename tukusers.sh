@@ -7,6 +7,7 @@ USERS="avery.crespi
 carlos.westman
 corbin.graham
 daphne.mui
+david.moseler
 dima.zhuravel
 djoslin
 eli.myers
