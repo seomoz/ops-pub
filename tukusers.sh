@@ -12,7 +12,6 @@ dima.zhuravel
 djoslin
 eli.myers
 hahn.miao
-hrisikesh.chowdhury
 jason
 jesse.brown
 justis
