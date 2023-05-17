@@ -88,6 +88,9 @@ service rsyslog restart
 
 logger "$(hostname) installed"
 
+# clean up old installs that are not needed.
+DEBIAN_FRONTEND=noninteractive
+
 if [ -e /var/alertlogic ]; then
   if [ -e /usr/bin/apt ]; then
     apt purge -y al-agent
