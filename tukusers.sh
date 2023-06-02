@@ -21,8 +21,7 @@ michael.greenwell
 moz
 namrata
 seomoz
-shravan.kumar
-vinitmahedia"
+shravan.kumar"
 
 # clean up old users
 CURRENT_USERS=$(ls -1 /home)
