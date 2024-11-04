@@ -9,8 +9,8 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-echo nameserver 216.176.188.2 >> /etc/resolvconf/resolv.conf.d/head
-sudo resolvconf -u
+#echo nameserver 216.176.188.2 >> /etc/resolvconf/resolv.conf.d/head
+#sudo resolvconf -u
 sed -i 's/dns-nameservers/#dns-nameservers/' /etc/network/interfaces
 sed -i 's/dns-search/#dns-search/' /etc/network/interfaces
 
@@ -42,8 +42,8 @@ touch /tmp/ran_base_install.flag
 
 # Update packages
 yellow "Updating/installing packages"
-apt update || true
-apt -y upgrade
+#apt update || true
+#apt -y upgrade
 apt -y install ntp ntpdate screen curl build-essential git-core dstat libcurl4-openssl-dev libicu-dev htop sysstat zip xfsprogs
 
 yellow "Setting editor to VI globally"
@@ -113,7 +113,7 @@ wget https://github.com/seomoz/ops-pub/raw/master/pdns-trusty.tgz
 tar -xzf pdns-trusty.tgz
 dpkg -i pdns-recursor_4.1.2-1pdns.trusty_amd64.deb
 echo "fixing dependencies with pdns-recursor"
-apt-get -f install
+apt-get -f -y install
 echo "verify with sudo service pdns-recursor status. Should be running."
 echo "if not running run apt-get -f install"
 
