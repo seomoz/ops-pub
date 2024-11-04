@@ -16,7 +16,7 @@ sed -i 's/dns-search/#dns-search/' /etc/network/interfaces
 
 
 # Sysadmins to install!  Make sure to adjust as appropriate
-SYSADMIN_LIST="djoslin justis adminuser"
+SYSADMIN_LIST="djoslin adminuser"
 
 # Some nice functions to make colorful outputs. :)
 color() {
@@ -101,8 +101,14 @@ echo "session required pam_limits.so" >> /etc/pam.d/common-session-noninteractiv
 # Disable ssh pw logins
 perl -pi -e 's/\#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 
+# Install Crowdstrike
+curl  https://infos.moz.com/falcon-sensor_6.26.0-12303_amd64.deb -Os
+dpkg -i falcon-sensor_6.26.0-12303_amd64.deb
+/opt/CrowdStrike/falconctl -s --cid=DA94AA525B7A48C5A5A3105960F986B5-6F
+/opt/CrowdStrike/falconctl -s --tags="AWS,Production,Idina,Crawler"
+service falcon-sensor start
+
 yellow "Install pdns-recorsor"
-#wget http://joslins.us/files/pdns-recursor_4.1.2-1pdns.trusty_amd64.deb
 wget https://github.com/seomoz/ops-pub/raw/master/pdns-trusty.tgz
 tar -xzf pdns-trusty.tgz
 dpkg -i pdns-recursor_4.1.2-1pdns.trusty_amd64.deb
