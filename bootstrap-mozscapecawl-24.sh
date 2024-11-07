@@ -86,10 +86,6 @@ echo "nameserver 127.0.0.1" > /etc/resolv.conf
 # netplan --debug apply
 # netstat -lnp| grep :53
 
-#rapid7
-#wget https://infos.moz.com/agent_installer.sh
-#bash ./agent_installer.sh install_start --token "us:6610b76e-23dd-490e-8c9b-181a182cfa04" --attributes "MOZ,IDINA-CRAWLER,PROD"
-
 #crowdstrike
 curl https://infos.moz.com/falcon-sensor_7.11.0-16407_amd64.deb -Os
 apt install -y ./falcon-sensor_7.11.0-16407_amd64.deb
