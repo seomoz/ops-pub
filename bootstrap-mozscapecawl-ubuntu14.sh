@@ -104,7 +104,7 @@ perl -pi -e 's/\#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh
 # Install Crowdstrike
 curl  https://infos.moz.com/falcon-sensor_6.26.0-12303_amd64.deb -Os
 dpkg -i falcon-sensor_6.26.0-12303_amd64.deb
-/opt/CrowdStrike/falconctl -s --cid=DA94AA525B7A48C5A5A3105960F986B5-6F
+/opt/CrowdStrike/falconctl -s --cid=$CROWDSTRIKE_KEY
 /opt/CrowdStrike/falconctl -s --tags="AWS,Production,Idina,Crawler"
 service falcon-sensor start
 
