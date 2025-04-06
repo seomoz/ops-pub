@@ -56,7 +56,7 @@ touch /etc/skel/.ssh/authorized_keys
 chmod 644 /etc/skel/.ssh/authorized_keys
 
 yellow "Set up users"
-SYSADMIN_LIST="djoslin justis adminuser"
+SYSADMIN_LIST="djoslin adminuser"
 for USER in $SYSADMIN_LIST; do
   green ">>> Adding sysadmin $USER"
   useradd -m $USER -s /bin/bash -G sudo || true
