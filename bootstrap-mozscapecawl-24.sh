@@ -87,8 +87,8 @@ echo "nameserver 127.0.0.1" > /etc/resolv.conf
 # netstat -lnp| grep :53
 
 #crowdstrike
-curl https://infos.moz.com/falcon-sensor_7.11.0-16407_amd64.deb -Os
-apt install -y ./falcon-sensor_7.11.0-16407_amd64.deb
+curl https://infos.moz.com/falcon-sensor_7.33.0-18606_amd64.deb -Os
+apt install -y ./falcon-sensor_7.33.0-18606_amd64.deb
 /opt/CrowdStrike/falconctl -s --cid=$CROWDSTRIKE_KEY
 /opt/CrowdStrike/falconctl -s --tags="IDINA-CRAWLER,PROD"
 systemctl start falcon-sensor

@@ -102,8 +102,8 @@ echo "session required pam_limits.so" >> /etc/pam.d/common-session-noninteractiv
 perl -pi -e 's/\#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 
 # Install Crowdstrike
-curl  https://infos.moz.com/falcon-sensor_6.26.0-12303_amd64.deb -Os
-dpkg -i falcon-sensor_6.26.0-12303_amd64.deb
+curl  https://infos.moz.com/falcon-sensor_7.33.0-18606_amd64.deb -Os
+dpkg -i falcon-sensor_7.33.0-18606_amd64.deb
 /opt/CrowdStrike/falconctl -s --cid=$CROWDSTRIKE_KEY
 /opt/CrowdStrike/falconctl -s --tags="AWS,Production,Idina,Crawler"
 service falcon-sensor start
